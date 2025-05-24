@@ -1,0 +1,105 @@
+[
+  {
+    "id": 1748035018104.5703,
+    "type": "CONTACT_ADDED",
+    "payload": {
+      "id": 0,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "type": "lead",
+      "createdAt": "2025-05-23T21:16:58.100Z",
+      "tags": []
+    },
+    "timestamp": "2025-05-23T21:16:58.104Z",
+    "version": 1,
+    "metadata": {}
+  },
+  {
+    "id": 1748035018105.2224,
+    "type": "CONTACT_ADDED",
+    "payload": {
+      "id": 1,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "type": "lead",
+      "createdAt": "2025-05-23T21:16:58.105Z",
+      "tags": []
+    },
+    "timestamp": "2025-05-23T21:16:58.105Z",
+    "version": 1,
+    "metadata": {}
+  },
+  {
+    "id": 1748035018106.1497,
+    "type": "CONTACT_ADDED",
+    "payload": {
+      "id": 2,
+      "name": "Bob Wilson",
+      "email": "bob@example.com",
+      "type": "customer",
+      "createdAt": "2025-05-23T21:16:58.106Z",
+      "tags": []
+    },
+    "timestamp": "2025-05-23T21:16:58.106Z",
+    "version": 1,
+    "metadata": {}
+  },
+  {
+    "id": 1748035018107.2104,
+    "type": "COMMUNICATION_RECORDED",
+    "payload": {
+      "id": 3,
+      "contactId": 0,
+      "type": "email",
+      "content": "Initial outreach email",
+      "direction": "outbound",
+      "timestamp": "2025-05-23T21:16:58.107Z"
+    },
+    "timestamp": "2025-05-23T21:16:58.107Z",
+    "version": 1,
+    "metadata": {}
+  },
+  {
+    "id": 1748035018107.5652,
+    "type": "COMMUNICATION_RECORDED",
+    "payload": {
+      "id": 4,
+      "contactId": 0,
+      "type": "call",
+      "content": "Follow-up call, interested!",
+      "direction": "inbound",
+      "timestamp": "2025-05-23T21:16:58.107Z"
+    },
+    "timestamp": "2025-05-23T21:16:58.107Z",
+    "version": 1,
+    "metadata": {}
+  },
+  {
+    "id": 1748035018107.0417,
+    "type": "COMMUNICATION_RECORDED",
+    "payload": {
+      "id": 5,
+      "contactId": 1,
+      "type": "email",
+      "content": "Pricing inquiry",
+      "direction": "inbound",
+      "timestamp": "2025-05-23T21:16:58.107Z"
+    },
+    "timestamp": "2025-05-23T21:16:58.107Z",
+    "version": 1,
+    "metadata": {}
+  },
+  {
+    "id": 1748035018108.1206,
+    "type": "CONTACT_UPDATED",
+    "payload": {
+      "contactId": 0,
+      "updates": {
+        "type": "customer"
+      }
+    },
+    "timestamp": "2025-05-23T21:16:58.108Z",
+    "version": 1,
+    "metadata": {}
+  }
+]

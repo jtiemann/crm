@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional CRM</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .stat { background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .stat-number { font-size: 2em; font-weight: bold; color: #007AFF; }
+        .stat-label { color: #666; margin-top: 5px; }
+        .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .panel { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .panel-header { padding: 15px; border-bottom: 1px solid #eee; font-weight: bold; }
+        .panel-content { padding: 15px; max-height: 400px; overflow-y: auto; }
+        .form { display: grid; gap: 10px; margin-bottom: 20px; }
+        .form input, .form select, .form textarea { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        .form button { padding: 10px; background: #007AFF; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .form button:hover { background: #0056CC; }
+        .contact-item { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
+        .contact-item:hover { background: #f8f9fa; }
+        .contact-name { font-weight: bold; }
+        .contact-meta { font-size: 0.9em; color: #666; margin-top: 2px; }
+        .contact-type { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+        .type-lead { background: #FFE4B5; color: #8B4513; }
+        .type-customer { background: #E6FFFA; color: #008B8B; }
+        .comm-item { padding: 8px; border-left: 3px solid #007AFF; margin-bottom: 8px; background: #f8f9fa; }
+        .comm-header { font-size: 0.9em; color: #666; margin-bottom: 4px; }
+        .comm-content { font-size: 0.95em; }
+        .promote-btn { background: #28a745; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8em; }
+        .promote-btn:hover { background: #218838; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 Functional CRM</h1>
+            <p>Reactive stream-based contact management</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number" id="total-contacts">0</div>
+                <div class="stat-label">Total Contacts</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="leads-count">0</div>
+                <div class="stat-label">Leads</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="customers-count">0</div>
+                <div class="stat-label">Customers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="communications-count">0</div>
+                <div class="stat-label">Communications</div>
+            </div>
+        </div>
+
+        <div class="panels">
+            <div class="panel">
+                <div class="panel-header">Add Contact</div>
+                <div class="panel-content">
+                    <form class="form" id="contact-form">
+                        <input type="text" id="contact-name" placeholder="Full Name" required>
+                        <input type="email" id="contact-email" placeholder="Email Address" required>
+                        <select id="contact-type">
+                            <option value="lead">Lead</option>
+                            <option value="customer">Customer</option>
+                        </select>
+                        <button type="submit">Add Contact</button>
+                    </form>
+
+                    <div style="margin-top: 20px;">
+                        <div class="panel-header" style="padding: 0 0 10px 0; border: none;">Add Communication</div>
+                        <form class="form" id="comm-form">
+                            <select id="comm-contact" required>
+                                <option value="">Select Contact</option>
+                            </select>
+                            <select id="comm-type">
+                                <option value="email">Email</option>
+                                <option value="call">Call</option>
+                                <option value="meeting">Meeting</option>
+                                <option value="note">Note</option>
+                            </select>
+                            <select id="comm-direction">
+                                <option value="outbound">Outbound</option>
+                                <option value="inbound">Inbound</option>
+                            </select>
+                            <textarea id="comm-content" placeholder="Communication details" rows="3" required></textarea>
+                            <button type="submit">Record Communication</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">Contacts</div>
+                <div class="panel-content" id="contacts-list">
+                    <div style="text-align: center; color: #666; padding: 20px;">No contacts yet</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel" style="margin-top: 20px;">
+            <div class="panel-header">Recent Communications</div>
+            <div class="panel-content" id="communications-list">
+                <div style="text-align: center; color: #666; padding: 20px;">No communications yet</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ui-streams.js"></script>
+    <script src="ui-app.js"></script>
+</body>
+</html>
